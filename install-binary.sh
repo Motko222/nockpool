@@ -6,8 +6,10 @@ read -p "Sure? " c
 case $c in y|Y) ;; *) exit ;; esac
 
 #install binary
-cd /root
-# add install cmds here
+mkdir -p /root/nockpool
+cd /root/nockpool
+curl -L -o miner-launcher https://github.com/SWPSCO/nockpool-miner-launcher/releases/latest/download/miner-launcher_linux_x64
+chmod +x miner-launcher
 
 #create env
 cd $path
