@@ -4,7 +4,7 @@ source $path/env
 
 #create service
 printf "[Unit]
-Description=$folder node
+Description=$folder miner
 After=network.target
 Wants=network-online.target
 
@@ -13,7 +13,7 @@ EnvironmentFile=/root/scripts/$folder/env
 Environment=""
 User=root
 Group=root
-ExecStart=$folder
+ExecStart=/root/nockpool/miner-launcher --account-token $TOKEN --max-threads $THREADS
 Restart=always
 RestartSec=30
 LimitNOFILE=65536
@@ -21,7 +21,7 @@ LimitNPROC=4096
 StandardOutput=journal
 StandardError=journal
 SyslogIdentifier=$folder
-WorkingDirectory=/root/$folder
+WorkingDirectory=/root/nockpool
 
 [Install]
 WantedBy=multi-user.target" > /etc/systemd/system/$folder.service
