@@ -33,7 +33,7 @@ cat >$json << EOF
         "service":"$service",
         "errors":"$errors",
         "height":"",
-        "m1":"",
+        "m1":"threads=$THREADS",
         "m2":"",
         "m3":"",
         "url":"",
