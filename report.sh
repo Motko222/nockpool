@@ -25,8 +25,8 @@ cat >$json << EOF
        "owner":"$OWNER"
   },
   "fields": {
-        "chain":"mainnet",
-        "network":"nockchain",
+        "chain":"nockchain",
+        "network":"mainnet",
         "version":"$version",
         "status":"$status",
         "message":"$message",
