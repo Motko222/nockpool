@@ -9,6 +9,7 @@ source $path/env
 version=$(/root/.local/share/nockpool-miner/current/nockpool-miner -V | awk '{print $NF}')
 service=$(sudo systemctl status $folder --no-pager | grep "active (running)" | wc -l)
 errors=$(journalctl -u $folder.service --since "1 hour ago" --no-hostname -o cat | grep -c -E "rror|ERR")
+found=$(journalctl -u $folder.service --since "1 day ago" --no-hostname -o cat | grep -c -E "solution found")
 
 status="ok" && message=""
 [ $errors -gt 500 ] && status="warning" && message="errors=$errors";
@@ -33,8 +34,8 @@ cat >$json << EOF
         "service":"$service",
         "errors":"$errors",
         "height":"",
-        "m1":"threads=$THREADS",
-        "m2":"",
+        "m1":"found=$found",
+        "m2":"threads=$THREADS",
         "m3":"",
         "url":"",
         "url1":"",
