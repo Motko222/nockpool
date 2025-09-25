@@ -8,6 +8,7 @@ case $c in y|Y) ;; *) exit ;; esac
 #install binary
 mkdir -p /root/nockpool
 cd /root/nockpool
+rm miner-launcher
 curl -L -o miner-launcher https://github.com/SWPSCO/nockpool-miner-launcher/releases/latest/download/miner-launcher_linux_x64
 chmod +x miner-launcher
 
